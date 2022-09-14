@@ -181,4 +181,4 @@ with col13:
               f"${pretty(avg_bribe*28, 3 , False)}")
 
 with col23:
-    st.metric("Renting %/year", f"{pretty(renting_rate*100, 1, False)}%")
+    st.metric("Yearly bribes/cost of Aura", f"{pretty(renting_rate*100, 1, False)}%")
