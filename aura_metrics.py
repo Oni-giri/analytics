@@ -113,16 +113,16 @@ col11, col21, col31 = st.columns(3)
 
 with col11:
     st.metric("Aura price", f"${aura_price}",
-              f"{pretty(aura_cg['price_change_24h']*100, 2, False)}%/24h")
+              f"{pretty(aura_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 
 with col21:
     st.metric("Bal price", f"${bal_price}",
-              f"{pretty(bal_cg['price_change_24h']*100, 2, False)}%/24h")
+              f"{pretty(bal_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 with col31:
     st.metric("Eth price", f"${eth_price}",
-              f"{pretty(eth_cg['price_change_24h']/10, 2, False)}%/24h")
+              f"{pretty(eth_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 # Emissions and bribes --------------
 st.subheader("Emissions and bribes")
