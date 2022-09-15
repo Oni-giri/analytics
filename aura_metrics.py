@@ -122,7 +122,7 @@ with col21:
 
 with col31:
     st.metric("Eth price", f"${eth_price}",
-              f"{pretty(eth_cg['price_change_24h']*100, 2, False)}%/24h")
+              f"{pretty(eth_cg['price_change_24h'], 2, False)}%/24h")
 
 # Emissions and bribes --------------
 st.subheader("Emissions and bribes")
