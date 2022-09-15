@@ -78,7 +78,7 @@ veAura_ts = veAura.caller.totalSupply()
 
 # Aura
 aura_address = "0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF"
-aura_cg = cg_data("aura-finance", ["current_price", "price_change_24h"])
+aura_cg = cg_data("aura-finance", ["current_price", "price_change_percentage_24h"])
 aura_price = aura_cg["current_price"]
 aura = contract(aura_address)
 aura_ts = aura.caller.totalSupply()
@@ -113,16 +113,16 @@ col11, col21, col31 = st.columns(3)
 
 with col11:
     st.metric("Aura price", f"${aura_price}",
-              f"{pretty(100*aura_cg['price_change_24h']/aura_price, 2, False)}%/24h")
+              f"{pretty(100*aura_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 
 with col21:
     st.metric("Bal price", f"${bal_price}",
-              f"{pretty(100*bal_cg['price_change_24h']/bal_brice, 2, False)}%/24h")
+              f"{pretty(100*bal_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 with col31:
     st.metric("Eth price", f"${eth_price}",
-              f"{pretty(100*eth_cg['price_change_24h']/eth_price, 2, False)}%/24h")
+              f"{pretty(100*eth_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 # Emissions and bribes --------------
 st.subheader("Emissions and bribes")
