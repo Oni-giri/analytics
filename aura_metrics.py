@@ -66,7 +66,7 @@ veBal_2023 = 121929
 veBal_ts = veBal.caller.totalSupply()
 
 # Bal
-bal_cg = cg_data("balancer", ["current_price", "price_change_24h"])
+bal_cg = cg_data("balancer", ["current_price", "price_change_percentage_24h"])
 bal_price = bal_cg["current_price"]
 bal_per_week = veBal_2022 if datetime.now().year == 2022 else veBal_2023
 bal_value_per_week = bal_per_week*bal_price
@@ -101,7 +101,7 @@ total_per_cycle = (bal_v_p_veAura_p_week*(1-0.17) + aura_v_p_veAura_p_week)*2
 bribe_p_y_p_aura = avg_bribe*28
 renting_rate = bribe_p_y_p_aura/aura_price
 
-eth_cg = cg_data("ethereum", ["current_price", "price_change_24h"])
+eth_cg = cg_data("ethereum", ["current_price", "price_change_percentage_24h"])
 eth_price = eth_cg["current_price"]
 
 
@@ -113,16 +113,16 @@ col11, col21, col31 = st.columns(3)
 
 with col11:
     st.metric("Aura price", f"${aura_price}",
-              f"{pretty(100*aura_cg['price_change_percentage_24h'], 2, False)}%/24h")
+              f"{pretty(aura_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 
 with col21:
     st.metric("Bal price", f"${bal_price}",
-              f"{pretty(100*bal_cg['price_change_percentage_24h'], 2, False)}%/24h")
+              f"{pretty(bal_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 with col31:
     st.metric("Eth price", f"${eth_price}",
-              f"{pretty(100*eth_cg['price_change_percentage_24h'], 2, False)}%/24h")
+              f"{pretty(eth_cg['price_change_percentage_24h'], 2, False)}%/24h")
 
 # Emissions and bribes --------------
 st.subheader("Emissions and bribes")
