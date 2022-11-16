@@ -156,13 +156,13 @@ st.subheader("Cost of yield")
 col15, col25, col35 = st.columns(3)
 with col15:
     st.metric("veAura for 10% APR on 1M$", pretty(
-        100000/(total_per_cycle*28), 0, False))
+        100000/(total_per_cycle*26), 0, False))
     st.metric("2% cap/1M$ TVL APR",
-              f"{pretty(100*(veBal_ts * 0.02 / veAuraBal_per_veAura) * (total_per_cycle * 28)/ 1_000_000, 0 ,True) }%")
+              f"{pretty(100*(veBal_ts * 0.02 / veAuraBal_per_veAura) * (total_per_cycle * 26)/ 1_000_000, 0 ,True) }%")
 
 with col25:
     st.metric("$ veAura for 10%/1M$",
-              f"${pretty(aura_price * 100000/(total_per_cycle * 28), 0, False)}")
+              f"${pretty(aura_price * 100000/(total_per_cycle * 26), 0, False)}")
     st.metric("2% cap bribe cost/2weeks",
               f"${ pretty(avg_bribe * veBal_ts * 0.02 / veAuraBal_per_veAura, 0, True)}")
 
@@ -170,7 +170,7 @@ with col35:
     st.metric("veAura needed for 2% of bal", pretty(
         veBal_ts * 0.02 / veAuraBal_per_veAura, 0, True))
     st.metric("2% cap bribe cost/year",
-              f"${ pretty(avg_bribe * 28 * veBal_ts * 0.02 / veAuraBal_per_veAura, 0, True) }")
+              f"${ pretty(avg_bribe * 26 * veBal_ts * 0.02 / veAuraBal_per_veAura, 0, True) }")
 
 # Ownership
 st.subheader("Ownership or rent?")
@@ -178,7 +178,7 @@ st.subheader("Ownership or rent?")
 col13, col23, col33 = st.columns(3)
 with col13:
     st.metric("Annual bribe cost per veAura",
-              f"${pretty(avg_bribe*28, 3 , False)}")
+              f"${pretty(avg_bribe*26, 3 , False)}")
 
 with col23:
     st.metric("Yearly bribes/cost of Aura", f"{pretty(renting_rate*100, 1, False)}%")
