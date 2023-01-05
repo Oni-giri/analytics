@@ -134,8 +134,8 @@ with col12:
               f"${pretty(bal_v_p_veAura_p_week, 3, False)}")
     st.metric("Total incentive/veAura/2weeks",
               pretty(total_per_cycle, 3, False))
-    st.metric("Aura yield increase (inc 20% fees)",
-              f"{pretty(100*aura_per_bal * aura_price / bal_price-20, 2, False)}%")
+    st.metric("Aura yield increase (inc 25% fees)",
+              f"{pretty(100*aura_per_bal * aura_price / bal_price-25, 2, False)}%")
 
 with col22:
     st.metric("Bal emissions/week", pretty(bal_per_week, 0, False))
@@ -155,19 +155,19 @@ with col23:
 st.subheader("Cost of yield")
 col15, col25, col35 = st.columns(3)
 with col15:
-    st.metric("veAura for 10% APR on 1M$", pretty(
+    st.metric("veAura for 10\% APR on 1M$", pretty(
         100000/(total_per_cycle*26), 0, False))
     st.metric("2% cap/1M$ TVL APR",
               f"{pretty(100*(veBal_ts * 0.02 / veAuraBal_per_veAura) * (total_per_cycle * 26)/ 1_000_000, 0 ,True) }%")
 
 with col25:
-    st.metric("$ veAura for 10%/1M$",
+    st.metric("$ veAura for 10\%/1M$",
               f"${pretty(aura_price * 100000/(total_per_cycle * 26), 0, False)}")
     st.metric("2% cap bribe cost/2weeks",
               f"${ pretty(avg_bribe * veBal_ts * 0.02 / veAuraBal_per_veAura, 0, True)}")
 
 with col35:
-    st.metric("veAura needed for 2% of bal", pretty(
+    st.metric("veAura needed for 2\% of bal", pretty(
         veBal_ts * 0.02 / veAuraBal_per_veAura, 0, True))
     st.metric("2% cap bribe cost/year",
               f"${ pretty(avg_bribe * 26 * veBal_ts * 0.02 / veAuraBal_per_veAura, 0, True) }")
