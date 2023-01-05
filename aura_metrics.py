@@ -97,7 +97,7 @@ avg_bribe = get_avg_bribe()
 bal_p_week_p_veAura = 1e18*bal_per_week*(auraBal_ts/veBal_ts/veAura_ts)
 bal_v_p_veAura_p_week = bal_p_week_p_veAura*bal_price
 aura_v_p_veAura_p_week = bal_p_week_p_veAura*aura_price*aura_per_bal
-total_per_cycle = (bal_v_p_veAura_p_week*(1-0.17) + aura_v_p_veAura_p_week)*2
+total_per_cycle = (bal_v_p_veAura_p_week*(1-0.25) + aura_v_p_veAura_p_week)*2
 bribe_p_y_p_aura = avg_bribe*28
 renting_rate = bribe_p_y_p_aura/aura_price
 
