@@ -96,7 +96,7 @@ avg_bribe = 0.09  # TODO: how to get this on-chain?
 avg_bribe = get_avg_bribe()
 bal_p_week_p_veAura = 1e18*bal_per_week*(auraBal_ts/veBal_ts/veAura_ts)
 bal_v_p_veAura_p_week = bal_p_week_p_veAura*bal_price
-aura_v_p_veAura_p_week = bal_p_week_p_veAura*aura_price*aura_per_bal
+aura_v_p_veAura_p_week = bal_p_week_p_veAura*aura_price*aura_per_bal*0.75 # 25%% fee
 total_per_cycle = (bal_v_p_veAura_p_week*(1-0.25) + aura_v_p_veAura_p_week)*2
 bribe_p_y_p_aura = avg_bribe*28
 renting_rate = bribe_p_y_p_aura/aura_price
@@ -130,12 +130,12 @@ col12, col22, col23 = st.columns(3)
 
 with col12:
     st.metric("veBal supply", pretty(veBal.caller.totalSupply(), 0, True))
-    st.metric("Bal emmission/week/veAura",
+    st.metric("Bal emission/week/veAura",
               f"${pretty(bal_v_p_veAura_p_week, 3, False)}")
     st.metric("Total incentive/veAura/2weeks",
               pretty(total_per_cycle, 3, False))
     st.metric("Aura yield increase (inc 25% fees)",
-              f"{pretty(75*aura_per_bal * aura_price / bal_price, 2, False)}%")
+              f"{pretty(75*aura_per_bal * aura_price / bal_price - 25, 2, False)}%")
 
 with col22:
     st.metric("Bal emissions/week", pretty(bal_per_week, 0, False))
@@ -144,15 +144,15 @@ with col22:
     st.metric("Bribe APR for briber",
               f"{pretty(100*total_per_cycle/avg_bribe, 2, False)}%")
     st.metric("Aura yield increase (inc 50% fees)",
-              f"{pretty(50*aura_per_bal * aura_price / bal_price, 2, False)}%")
+              f"{pretty(50*aura_per_bal * aura_price / bal_price - 50, 2, False)}%")
 
 with col23:
     st.metric("Bal emissions value/year",
               f"${pretty(bal_value_per_week*56, 0, False)}")
     st.metric("Current avg bribe/veAura", f"${pretty(avg_bribe, 2, False)}")
-    st.metric("Aura emission per Bal farmed", pretty(aura_per_bal, 2, False))
+    st.metric("Aura emission per Bal farmed (raw)", pretty(aura_per_bal, 2, False))
     st.metric("Aura yield increase (inc 33% fees)",
-              f"{pretty(66*aura_per_bal * aura_price / bal_price, 2, False)}%")
+              f"{pretty(66*aura_per_bal * aura_price / bal_price - 33, 2, False)}%")
 
 
 # Cost of yield -------------------------------------
