@@ -144,7 +144,7 @@ with col22:
     st.metric("Bribe APR for briber",
               f"{pretty(100*total_per_cycle/avg_bribe, 2, False)}%")
     st.metric("Aura yield increase (inc 50% fees)",
-              f"{pretty(100*aura_per_bal * aura_price / bal_price-50, 2, False)}%")
+              f"{pretty(75*aura_per_bal * aura_price / bal_price-50, 2, False)}%")
 
 with col23:
     st.metric("Bal emissions value/year",
