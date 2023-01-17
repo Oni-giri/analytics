@@ -135,7 +135,7 @@ with col12:
     st.metric("Total incentive/veAura/2weeks",
               pretty(total_per_cycle, 3, False))
     st.metric("Aura yield increase (inc 25% fees)",
-              f"{pretty(100*aura_per_bal * aura_price / bal_price-25, 2, False)}%")
+              f"{pretty(75*aura_per_bal * aura_price / bal_price, 2, False)}%")
 
 with col22:
     st.metric("Bal emissions/week", pretty(bal_per_week, 0, False))
