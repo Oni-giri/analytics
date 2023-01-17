@@ -144,13 +144,15 @@ with col22:
     st.metric("Bribe APR for briber",
               f"{pretty(100*total_per_cycle/avg_bribe, 2, False)}%")
     st.metric("Aura yield increase (inc 50% fees)",
-              f"{pretty(75*aura_per_bal * aura_price / bal_price-50, 2, False)}%")
+              f"{pretty(50*aura_per_bal * aura_price / bal_price, 2, False)}%")
 
 with col23:
     st.metric("Bal emissions value/year",
               f"${pretty(bal_value_per_week*56, 0, False)}")
     st.metric("Current avg bribe/veAura", f"${pretty(avg_bribe, 2, False)}")
     st.metric("Aura emission per Bal farmed", pretty(aura_per_bal, 2, False))
+    st.metric("Aura yield increase (inc 33% fees)",
+              f"{pretty(66*aura_per_bal * aura_price / bal_price, 2, False)}%")
 
 
 # Cost of yield -------------------------------------
