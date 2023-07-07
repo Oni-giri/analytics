@@ -8,7 +8,7 @@ locale.setlocale(locale.LC_ALL, '')
 
 w3 = Web3(Web3.HTTPProvider(
     "https://winter-empty-river.discover.quiknode.pro/9adcd34a82a8c99bc85a15b8131afc1b991c4116/"))
-assert w3.isConnected()
+# assert w3.isConnected()
 
 # load contracts
 
